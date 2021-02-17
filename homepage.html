@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Art website</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -9,8 +9,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
+<header>
+  <h1>Art website</h1>
+  <form> 
+    <button>
+
+    </button>
+  </form>
+  <nav>
+
+  </nav>
+  
+</header>
+
 <body>
- 
+  <main>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -23,14 +37,27 @@
     <div class="carousel-inner">
       <div class="item active">
         <img src="la.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>Art piece 1</h3>
+          <p>A lovely piece of art</p>
+        </div>
       </div>
+    
 
       <div class="item">
         <img src="chicago.jpg" alt="Chicago" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>Art piece 2</h3>
+          <p>A lovely piece of art</p>
+        </div>
       </div>
     
       <div class="item">
         <img src="ny.jpg" alt="New york" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>Art piece 3</h3>
+          <p>A lovely piece of art</p>
+        </div>
       </div>
     </div>
 
@@ -44,20 +71,35 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
+
+  <p>
+    hello
+  </p>
+
+</main>
   </body>
 
   <footer>
     <ul>
       <li>
-        link 1
+        <a href = "#link"> link 1 </a>
       </li>
       <li>
-        link 2
+        <a href = "#link"> link 2 </a>
       </li>
       <li>
-        link 3
+        <a href = "#link">link 3 </a>
       </li>
     </ul>
+    <aside>
+      <h2>Contact us</h2>
+      <form>
+        <label for="email">Your email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="message">Your message:</label><br>
+        <input type="text" id="message" name="messaage">
+        <button>Submit</button>
+      </form>
+    </aside>
   </footer>
 </html>
