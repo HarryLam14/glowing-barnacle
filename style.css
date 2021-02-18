@@ -1,0 +1,19 @@
+body {
+  font: 100% Helvetica, sans-serif;
+}
+
+#carouselExampleFade {
+  width: 500px;
+  padding-bottom: 100px;
+}
+
+.card-group {
+  padding-top: 25px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.ext-links {
+  background-color: #cccccc;
+}
+/*# sourceMappingURL=style.css.map */

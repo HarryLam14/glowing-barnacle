@@ -1,8 +1,12 @@
+$font-stack: Helvetica, sans-serif;
 
+body {
+    font: 100% $font-stack;
+}
 
 #carouselExampleFade{
-    width: 5700px;
-    margin: auto;
+    width: 500px;
+    padding-bottom: 100px;
 }
 
 .card-group {
