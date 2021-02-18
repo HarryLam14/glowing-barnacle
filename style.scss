@@ -1,8 +1,5 @@
 $font-stack: Helvetica, sans-serif;
 
-body {
-    font: 100% $font-stack;
-}
 
 #carouselExampleFade{
     width: 500px;
@@ -17,4 +14,9 @@ body {
 
 .ext-links {
     background-color: #cccccc;
+}
+
+.card {
+    padding: 10px;
+    font: Times New Roman, serif;
 }

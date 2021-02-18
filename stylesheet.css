@@ -1,8 +1,12 @@
-
+/* Cool tip: ALT + SHIFT + A    toggles a comment on anything you've highlighted */
 
 #carouselExampleFade{
-    width: 5700px;
+    width: 100% !important; /* stretch to full width of webpage */
     margin: auto;
+}
+
+.carousel-inner img {
+    height: 700px; /* set height of carousel */
 }
 
 .card-group {

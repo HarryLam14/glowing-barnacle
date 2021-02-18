@@ -1,7 +1,3 @@
-body {
-  font: 100% Helvetica, sans-serif;
-}
-
 #carouselExampleFade {
   width: 500px;
   padding-bottom: 100px;
@@ -15,5 +11,10 @@ body {
 
 .ext-links {
   background-color: #cccccc;
+}
+
+.card {
+  padding: 10px;
+  font: Times New Roman, serif;
 }
 /*# sourceMappingURL=style.css.map */
