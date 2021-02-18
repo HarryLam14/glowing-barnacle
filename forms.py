@@ -3,9 +3,9 @@ from wtforms import Form, StringField, SelectField
 class ArtSearchForm (Form):
     choices = [('Artist', 'Artist'),
                 ('Piece', 'Piece')]
-    select = SelectField('Search for art:' choices = choices)
+    select = SelectField('Search for art:', choices = choices)
     search = StringField('')
-    
+
 
 
 
