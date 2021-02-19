@@ -9,6 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link href="style.css" rel="stylesheet" type="text/css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <!-- <script src="http://www.mapquestapi.com/directions/v2/routematrix"></script> -->
 </head>
 
 <header>
@@ -137,6 +138,8 @@
 </div>
 </body>
 
+
+
 <footer>
   <div class="container">
       <div class="row">
@@ -159,11 +162,28 @@
           </div>
           <div class="col">
               <form class="contact-form" action="#">
-                  <label id="label" for="contact-us">Contact us</label>
-                  <input class="form-element name" type="text" placeholder="name" size="25">
-                  <input class="form-element" type="text" placeholder="enter your email" size="25"></input>
-                  <textarea class="form-element text-input" name="contact-us" id="" cols="30" rows="4" placeholder="Please provide information regarding your request and we will respond as soon as possible"></textarea>
-                  <input  class="form-element" type="submit" ></input>
+                <!-- <label id="label" for="contact-us">Contact us</label>
+                <input class="form-element name" type="text" placeholder="name" size="25">
+                <input class="form-element" type="text" placeholder="enter your email" size="25"></input>
+                <textarea class="form-element text-input" name="contact-us" id="" cols="30" rows="4" placeholder="Please provide information regarding your request and we will respond as soon as possible"></textarea>
+                <input  class="form-element" type="submit" ></input> -->
+                  
+                <label for="Distance">Distance between</label>
+                <input id="Area1" type="text" placeholder="MapArea1" size="25">
+                <input id="Area2" type="text" placeholder="MapArea2" size="25"></input>
+                <input id="GetDistSubmit" type="submit"></input>
+                  <!-- src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" -->
+                <script> 
+                  document.getElementById('GetDistSubmit').onclick = function() {
+                    /* let map = L.mapquest.map('map', {
+                      center: [53.480759, -2.242631],
+                      layers: L.mapquest.tileLayer('map'),
+                      zoom: 12
+                    });
+                    console.log(map) */
+                    console.log("hello")
+                  };
+                </script>
               </form>
           </div>
       </div>
