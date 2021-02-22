@@ -10,7 +10,17 @@
   <link href="style.css" rel="stylesheet" type="text/css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <!-- <script src="http://www.mapquestapi.com/directions/v2/routematrix"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+
+  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+  <script src="script.js"></script>
+
+
 </head>
+
+<body>
 
 <header>
   <h1>Glowing Barnacles</h1>
@@ -54,7 +64,8 @@
   
 </header>
 
-<body>
+  <!--<div id="map">MapGoesHere</div>-->
+
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -64,21 +75,21 @@
       </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="Images/Image1.jpg" class="d-block w-100" alt="...">
+        <img src="https://source.unsplash.com/random/1200x1200" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Art piece 1</h5>
           <p>a piece of art</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="Images/Image2.jpg" class="d-block w-100" alt="...">
+        <img src="https://source.unsplash.com/random/1210x1200" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Art piece 2</h5>
           <p>a piece of art</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="Images/Image3.jpg" class="d-block w-100" alt="...">
+        <img src="https://source.unsplash.com/random/1220x1200" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Art piece 3</h5>
           <p>a piece of art</p>
@@ -136,58 +147,98 @@
     </div>
   </div>
 </div>
-</body>
+
+<div id="map" style="width: 100%; height: 530px;"></div>
+
+
 
 
 
 <footer>
   <div class="container">
-      <div class="row">
-          <div class="external-links col">
-              <p>More Information</p>
-              <ul>
-                  <li>
-                      <a href="#">About Us</a>
-                  </li>
-                  <li>
-                      <a href="#">Delivery Information</a>
-                  </li>
-                  <li>
-                      <a href="#">Join Us</a>
-                  </li>
-                  <li>
-                      <a href="#">Private Policy</a>
-                  </li>
-              </ul>
-          </div>
+
+    <div class="row">
+        <div class="external-links col">
+            <p>More Information</p>
+            <ul>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+                <li>
+                    <a href="#">Delivery Information</a>
+                </li>
+                <li>
+                    <a href="#">Join Us</a>
+                </li>
+                <li>
+                    <a href="#">Private Policy</a>
+                </li>
+            </ul>
+        </div>
+
           <div class="col">
-              <form class="contact-form" action="#">
+
+              <form id="Form">
                 <!-- <label id="label" for="contact-us">Contact us</label>
                 <input class="form-element name" type="text" placeholder="name" size="25">
                 <input class="form-element" type="text" placeholder="enter your email" size="25"></input>
                 <textarea class="form-element text-input" name="contact-us" id="" cols="30" rows="4" placeholder="Please provide information regarding your request and we will respond as soon as possible"></textarea>
                 <input  class="form-element" type="submit" ></input> -->
-                  
+
                 <label for="Distance">Distance between</label>
                 <input id="Area1" type="text" placeholder="MapArea1" size="25">
                 <input id="Area2" type="text" placeholder="MapArea2" size="25"></input>
                 <input id="GetDistSubmit" type="submit"></input>
-                  <!-- src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js" -->
-                <script> 
-                  document.getElementById('GetDistSubmit').onclick = function() {
-                    /* let map = L.mapquest.map('map', {
-                      center: [53.480759, -2.242631],
-                      layers: L.mapquest.tileLayer('map'),
-                      zoom: 12
-                    });
-                    console.log(map) */
-                    console.log("hello")
-                  };
-                </script>
+
+                  <script>
+                    var form = document.getElementById("Form");
+                    function handleForm(event) { event.preventDefault(); } 
+                    form.addEventListener('submit', handleForm);
+
+                    L.mapquest.key = 'UI5iBaLJvA5AazwNMIBIBs3D6guPDUx3';
+                    
+                    var directions = L.mapquest.directions();
+
+                    function routeMatrixCallback(error, response) {
+                      /* console.log(response); */
+                      document.getElementById("Output").innerHTML = 'Distance: ' + Math.round(response.distance[0][1]).toString() + ' miles';
+                    }
+                    
+                    document.getElementById('GetDistSubmit').onclick = function() {
+                      
+                      console.log("Requested the distance!")
+                      document.getElementById("Output").innerHTML = 'Fetching distance...'
+                      directions.routeMatrix({
+                        'locations': [
+                          document.getElementById("Area1").value,
+                          document.getElementById("Area2").value
+                        ],
+                        'options': {
+                          'allToAll': true
+                        }
+                      }, routeMatrixCallback);
+                      
+                    };
+
+                  </script>
+
+                  <p id="Output"></p>
+                  
               </form>
+              <!-- <form id="routeDirectionsForm" method="post" action="http://www.mapquestapi.com/directions/v2/routematrix?key=UI5iBaLJvA5AazwNMIBIBs3D6guPDUx3">
+                <label for="from">From</label>
+                <input type="text" id="from" name="from" placeholder="Starting from">
+                <label for="to">To</label>
+                <input type="text" id="to" name="to" placeholder="Going to">
+                <button type="submit">Submit</button>
+                
+                <p>Output</p>
+              </form> -->
+
           </div>
       </div>
   </div>
 </footer>
 
+</body>
 </html>
