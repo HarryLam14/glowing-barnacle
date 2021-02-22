@@ -1,20 +1,20 @@
 /* Cool tip: ALT + SHIFT + A    toggles a comment on anything you've highlighted */
 
-#carouselExampleFade{
-    width: 100% !important; /* stretch to full width of webpage */
-    margin: auto;
+#carouselExampleFade {
+	width: 100% !important; /* stretch to full width of webpage */
+	margin: auto;
 }
 
 .carousel-inner img {
-    height: 700px; /* set height of carousel */
+	height: 700px; /* set height of carousel */
 }
 
 .card-group {
-    padding-top: 25px;
-    padding-left: 100px;
-    padding-right: 100px;
+	padding-top: 25px;
+	padding-left: 100px;
+	padding-right: 100px;
 }
 
 .ext-links {
-    background-color: #cccccc;
+	background-color: #cccccc;
 }

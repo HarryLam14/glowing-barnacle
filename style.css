@@ -1,6 +1,7 @@
-#carouselExampleFade {
-  width: 500px;
-  padding-bottom: 100px;
+body {
+  max-width: 1248px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card-group {
